@@ -18,6 +18,7 @@
         "lint-staged": "^15.2.7",
         "prettier": "^3.3.2",
         "prettier-plugin-go-template": "^0.0.15",
+        "prettier-plugin-sql": "^0.18.0",
         "stylelint": "^16.6.1",
         "stylelint-config-standard": "^36.0.0",
         "tslib": "^2.6.3",
@@ -29,7 +30,7 @@
     "lint-staged": {
         "*.ts": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache --fix",
         "*.css": "stylelint --fix",
-        "*.{ts,gotmpl,css,json,md}": "prettier --write"
+        "*.{ts,gotmpl,css,json,sql,md}": "prettier --write"
     },
     "eslintConfig": {
         "root": true,
@@ -53,7 +54,8 @@
     },
     "prettier": {
         "plugins": [
-            "prettier-plugin-go-template"
+            "prettier-plugin-go-template",
+            "prettier-plugin-sql"
         ],
         "tabWidth": 4,
         "singleQuote": true,
