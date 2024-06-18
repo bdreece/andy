@@ -168,3 +168,4 @@ dist
 tmp/
 bin/
 configs/config.*.yml
+*.sql.go
