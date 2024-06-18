@@ -6,9 +6,9 @@ import (
 )
 
 func Context[T any]() slog.Attr {
-    return slog.String("context", reflect.TypeFor[T]().String())
+	return slog.String("context", reflect.TypeFor[T]().String())
 }
 
 func Error(err error) slog.Attr {
-    return slog.String("error", err.Error())
+	return slog.String("error", err.Error())
 }

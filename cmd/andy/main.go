@@ -22,11 +22,11 @@ import (
 
 func main() {
 	fx.New(
-        fx.Provide(cli.Parse),
+		fx.Provide(cli.Parse),
 		fx.Provide(loadConfig),
 		fx.Provide(logging.NewLogger),
 		fx.Provide(
-            database.NewDBTX,
+			database.NewDBTX,
 			fx.Annotate(
 				database.New,
 				fx.As(new(database.Querier)),
@@ -37,24 +37,24 @@ func main() {
 				session.NewCookieStore,
 				fx.As(new(sessions.Store)),
 			),
-            fx.Annotate(
-                validator.New,
-                fx.As(new(echo.Validator)),
-            ),
+			fx.Annotate(
+				validator.New,
+				fx.As(new(echo.Validator)),
+			),
 			fx.Annotate(
 				renderer.New,
 				fx.As(new(echo.Renderer)),
 			),
 		),
 		fx.Provide(
-		    auth.NewController,
-            comment.NewController,
-            content.NewController,
-		    passwordreset.NewController,
-		    post.NewController,
-		    profile.NewController,
-		    resource.NewController,
-        ),
+			auth.NewController,
+			comment.NewController,
+			content.NewController,
+			passwordreset.NewController,
+			post.NewController,
+			profile.NewController,
+			resource.NewController,
+		),
 		fx.Provide(createRouter),
 		fx.Invoke(invokeRoute),
 	).Run()

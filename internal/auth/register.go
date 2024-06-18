@@ -45,30 +45,30 @@ func (ctrl *Controller) Register(c echo.Context) error {
 		return err
 	}
 
-    hash, err := bcrypt.GenerateFromPassword(
-        []byte(form.Password),
-        bcrypt.DefaultCost)
+	hash, err := bcrypt.GenerateFromPassword(
+		[]byte(form.Password),
+		bcrypt.DefaultCost)
 
-    if err != nil {
-        return err
-    }
-
-    now := time.Now()
-	if err = ctrl.db.InsertUser(ctx, database.InsertUserParams{
-        CreatedAt: now,
-        UpdatedAt: now,
-        FirstName: form.FirstName,
-        LastName: form.LastName,
-        EmailAddress: form.EmailAddress,
-        EmailVerified: false,
-        PasswordHash: base64.StdEncoding.EncodeToString(hash),
-    }); err != nil {
+	if err != nil {
 		return err
 	}
 
-    return c.Render(http.StatusOK, "partials::alert", echo.Map{
-        "Icon": "tabler:info",
-        "Variant": "success",
-        "Content": "Registered successfully!",
-    })
+	now := time.Now()
+	if err = ctrl.db.InsertUser(ctx, database.InsertUserParams{
+		CreatedAt:     now,
+		UpdatedAt:     now,
+		FirstName:     form.FirstName,
+		LastName:      form.LastName,
+		EmailAddress:  form.EmailAddress,
+		EmailVerified: false,
+		PasswordHash:  base64.StdEncoding.EncodeToString(hash),
+	}); err != nil {
+		return err
+	}
+
+	return c.Render(http.StatusOK, "partials::alert", echo.Map{
+		"Icon":    "tabler:info",
+		"Variant": "success",
+		"Content": "Registered successfully!",
+	})
 }

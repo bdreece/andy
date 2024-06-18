@@ -63,12 +63,12 @@ func (ctrl *Controller) Login(c echo.Context) error {
 		FirstName: user.FirstName,
 		LastName:  user.LastName,
 	}); err != nil {
-        return err
-    }
+		return err
+	}
 
-    if err = sess.Save(c.Request(), c.Response()); err != nil {
-        return err
-    }
+	if err = sess.Save(c.Request(), c.Response()); err != nil {
+		return err
+	}
 
 	return c.Render(http.StatusOK, "partials::alert", echo.Map{
 		"Icon":    "tabler:info",

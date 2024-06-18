@@ -6,9 +6,9 @@ import (
 )
 
 func QueryMiddleware(db database.Querier) echo.MiddlewareFunc {
-    return func(next echo.HandlerFunc) echo.HandlerFunc {
-        return func(c echo.Context) error {
-            return next(c)
-        }
-    }
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			return next(c)
+		}
+	}
 }

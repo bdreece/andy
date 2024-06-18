@@ -6,17 +6,17 @@ import (
 )
 
 type Controller struct {
-    db database.Querier
+	db database.Querier
 }
 
 func (ctrl *Controller) Get(c echo.Context) error {
-    return nil
+	return nil
 }
 
 func (ctrl *Controller) Update(c echo.Context) error {
-    return nil
+	return nil
 }
 
 func NewController(db database.Querier) *Controller {
-    return &Controller{db}
+	return &Controller{db}
 }

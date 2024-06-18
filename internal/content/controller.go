@@ -7,15 +7,15 @@ import (
 )
 
 type Controller struct {
-    cfg *Config
+	cfg *Config
 }
 
 func (ctrl *Controller) Home(c echo.Context) error {
-    const template string = "home.gotmpl"
+	const template string = "home.gotmpl"
 
-    return c.Render(http.StatusOK, template, echo.Map{})
+	return c.Render(http.StatusOK, template, echo.Map{})
 }
 
 func NewController(cfg *Config) *Controller {
-    return &Controller{cfg}
+	return &Controller{cfg}
 }

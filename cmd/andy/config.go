@@ -33,7 +33,7 @@ func loadConfig(args cli.Args) (out struct {
 	}
 
 	out.Root = cfg.Root
-    out.Content = cfg.Content
+	out.Content = cfg.Content
 	out.Database = cfg.Database
 	out.Logging = cfg.Logging
 	out.Session = cfg.Session

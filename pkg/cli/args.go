@@ -13,16 +13,16 @@ const (
 )
 
 type Args struct {
-    ConfigPath string
+	ConfigPath string
 }
 
 func Parse() (args Args) {
-    flag.Usage = help
-    flag.StringVar(&args.ConfigPath, "c", "/etc/andy/config.yml", "config path")
+	flag.Usage = help
+	flag.StringVar(&args.ConfigPath, "c", "/etc/andy/config.yml", "config path")
 
-    flag.Parse()
+	flag.Parse()
 
-    return
+	return
 }
 
 func help() {

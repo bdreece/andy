@@ -14,14 +14,14 @@ type Config struct {
 }
 
 func NewDBTX(cfg *Config) (DBTX, error) {
-    db, err := sql.Open("sqlite3", cfg.DSN)
-    if err != nil {
-        return nil, err
-    }
+	db, err := sql.Open("sqlite3", cfg.DSN)
+	if err != nil {
+		return nil, err
+	}
 
-    if err = applyConfig(context.Background(), db, cfg); err != nil {
-        return nil, err
-    }
+	if err = applyConfig(context.Background(), db, cfg); err != nil {
+		return nil, err
+	}
 
-    return db, nil
+	return db, nil
 }

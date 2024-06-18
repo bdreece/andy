@@ -55,8 +55,8 @@ func createRouter(p struct {
 		echoMiddleware.Gzip(),
 		echoMiddleware.Secure(),
 		echoMiddleware.CSRFWithConfig(echoMiddleware.CSRFConfig{
-            CookieName: "_andy-csrf",
-        }),
+			CookieName: "_andy-csrf",
+		}),
 		echoSession.Middleware(p.SessionStore),
 		echoMiddleware.StaticWithConfig(echoMiddleware.StaticConfig{
 			Filesystem: http.FS(web.Static),
@@ -65,7 +65,7 @@ func createRouter(p struct {
 			Filesystem: http.FS(web.App),
 		}),
 		slogEcho.New(p.Logger),
-        session.Middleware,
+		session.Middleware,
 	)
 
 	e.GET("/", p.Content.Home)
