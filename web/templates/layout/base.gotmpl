@@ -1,0 +1,46 @@
+{{ define "layout::base" }}
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+            />
+
+            <link
+                id="custom-styles"
+                rel="stylesheet"
+                href="/index.css"
+            />
+
+            <title>{{ block "title" . }}andy{{ end }}</title>
+        </head>
+
+        <body
+            class="min-h-screen flex flex-col"
+            hx-boost="true"
+            hx-target="#content"
+            hx-select="#content"
+            hx-swap="outerHTML"
+        >
+            {{ template "layout::header" . }}
+
+
+            <main
+                id="content"
+                class="flex flex-col flex-1"
+            >
+                {{ block "content" . }}Page not found 😞{{ end }}
+            </main>
+
+            {{ template "layout::footer" . }}
+
+
+            <script
+                type="module"
+                src="/index.js"
+            ></script>
+        </body>
+    </html>
+{{ end }}

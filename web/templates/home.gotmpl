@@ -1,0 +1,31 @@
+{{ template "layout::base" . }}
+
+{{ define "content" }}
+
+    {{ if session.ID }}
+
+        <p>You are logged in!</p>
+    {{ else }}
+
+        <div class="hero hero-lines flex-1">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold font-display">Hello there</h1>
+
+                    <p class="py-6">
+                        Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                        assumenda excepturi exercitationem quasi. In deleniti
+                        eaque aut repudiandae et a id nisi.
+                    </p>
+
+                    <a
+                        class="btn btn-primary"
+                        href="/register"
+                        >Get Started</a
+                    >
+                </div>
+            </div>
+        </div>
+    {{ end }}
+
+{{ end }}

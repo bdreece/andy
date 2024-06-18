@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Playwrite PL';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/PlaywritePL/PlaywritePL-VF.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/Montserrat/Montserrat-VF.woff2') format('woff2');
+    }
+
+    iconify-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+    }
+}
+
+@layer components {
+    .hero-lines {
+        background-color: #fdfcfc;
+        background-image: url('/images/topography.svg');
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .hero-lines {
+            background-color: #030202;
+        }
+    }
+}

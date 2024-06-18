@@ -1,0 +1,60 @@
+{{ template "layout::base" . }}
+
+{{ define "title" }}andy &mdash; Login{{ end }}
+
+{{ define "content" }}
+    <section class="grow grid grid-cols-3">
+        <x-card class="row-start-2 col-start-2">
+            <span
+                class="mb-2"
+                slot="title"
+            >
+                Login
+            </span>
+
+            <form
+                class="flex flex-col gap-4"
+                hx-post="/login"
+                hx-target="#login-submit"
+                hx-swap="outerHTML"
+            >
+                <label class="input input-bordered flex items-center gap-2">
+                    <iconify-icon icon="tabler:mail"></iconify-icon>
+
+                    <input
+                        class="grow"
+                        type="email"
+                        autocomplete="email"
+                        name="email-address"
+                        placeholder="Email Address"
+                        maxlength="127"
+                        required
+                    />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <iconify-icon icon="tabler:key"></iconify-icon>
+
+                    <input
+                        class="grow"
+                        type="password"
+                        autocomplete="password"
+                        name="password"
+                        placeholder="Password"
+                        minlength="8"
+                        maxlength="127"
+                        required
+                    />
+                </label>
+
+                <button
+                    id="login-submit"
+                    type="submit"
+                    class="btn btn-primary w-full"
+                >
+                    Submit
+                </button>
+            </form>
+        </x-card>
+    </section>
+{{ end }}

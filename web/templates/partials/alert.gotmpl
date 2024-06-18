@@ -1,0 +1,8 @@
+{{ define "partials::alert" }}
+    <x-alert
+        icon="{{ .Icon }}"
+        variant="{{ .Variant }}"
+    >
+        {{ .Content }}
+    </x-alert>
+{{ end }}

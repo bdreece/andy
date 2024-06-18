@@ -1,0 +1,83 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "andy",
+    "private": true,
+    "version": "0.1.0",
+    "author": "Brian Reece <me@bdreece.dev>",
+    "license": "GPL-3.0-only",
+    "scripts": {
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.13.0",
+        "@typescript-eslint/parser": "^7.13.0",
+        "cross-env": "^7.0.3",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.7",
+        "prettier": "^3.3.2",
+        "prettier-plugin-go-template": "^0.0.15",
+        "stylelint": "^16.6.1",
+        "stylelint-config-standard": "^36.0.0",
+        "tslib": "^2.6.3",
+        "typescript": "^5.4.5"
+    },
+    "workspaces": [
+        "web/app"
+    ],
+    "lint-staged": {
+        "*.ts": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache --fix",
+        "*.css": "stylelint --fix",
+        "*.{ts,gotmpl,css,json,md}": "prettier --write"
+    },
+    "eslintConfig": {
+        "root": true,
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
+            "prettier"
+        ],
+        "plugins": [
+            "@typescript-eslint/eslint-plugin"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "env": {
+            "browser": true,
+            "es6": true
+        },
+        "parserOptions": {
+            "sourceType": "module",
+            "ecmaVersion": "latest"
+        }
+    },
+    "prettier": {
+        "plugins": [
+            "prettier-plugin-go-template"
+        ],
+        "tabWidth": 4,
+        "singleQuote": true,
+        "arrowParens": "avoid",
+        "singleAttributePerLine": true
+    },
+    "stylelint": {
+        "extends": [
+            "stylelint-config-standard"
+        ],
+        "rules": {
+            "at-rule-no-unknown": [
+                true,
+                {
+                    "ignoreAtRules": [
+                        "tailwind",
+                        "apply",
+                        "variants",
+                        "responsive",
+                        "screen"
+                    ]
+                }
+            ],
+            "no-descending-specificity": null
+        }
+    }
+}

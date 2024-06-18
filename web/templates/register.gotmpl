@@ -1,0 +1,92 @@
+{{ template "layout::base" . }}
+
+{{ define "title" }}andy &mdash; Register{{ end }}
+
+{{ define "content" }}
+
+    <section class="grow grid grid-cols-4">
+        <x-card class="row-start-2 row-span-2 col-start-2 col-span-2">
+            <span
+                class="mb-2"
+                slot="title"
+            >
+                Sign Up
+            </span>
+
+            <form
+                class="grid grid-cols-2 gap-2"
+                hx-post="/register"
+            >
+                <label class="input input-bordered flex items-center">
+                    <input
+                        type="text"
+                        autocomplete="given-name"
+                        name="first-name"
+                        placeholder="First Name"
+                        maxlength="63"
+                        required
+                    />
+                </label>
+
+                <label class="input input-bordered flex items-center">
+                    <input
+                        type="text"
+                        autocomplete="family-name"
+                        name="last-name"
+                        placeholder="Last Name"
+                        maxlength="63"
+                        required
+                    />
+                </label>
+
+                <label
+                    class="input input-bordered flex items-center gap-2 col-span-2"
+                >
+                    <iconify-icon icon="tabler:mail"></iconify-icon>
+
+                    <input
+                        type="email"
+                        autocomplete="email"
+                        name="email-address"
+                        placeholder="Email Address"
+                        maxlength="127"
+                        required
+                    />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <iconify-icon icon="tabler:key"></iconify-icon>
+
+                    <input
+                        type="password"
+                        autocomplete="new-password"
+                        name="password"
+                        placeholder="Password"
+                        minlength="8"
+                        maxlength="127"
+                        required
+                    />
+                </label>
+
+                <label class="input input-bordered flex items-center">
+                    <input
+                        type="password"
+                        autocomplete="new-password"
+                        name="confirm-password"
+                        placeholder="Confirm Password"
+                        minlength="8"
+                        maxlength="127"
+                        required
+                    />
+                </label>
+
+                <button
+                    class="btn btn-primary col-span-2"
+                    type="submit"
+                >
+                    Submit
+                </button>
+            </form>
+        </x-card>
+    </section>
+{{ end }}
